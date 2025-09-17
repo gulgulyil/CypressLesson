@@ -41,3 +41,19 @@ describe("Amazon Testleri", () => {
     });
 
 });
+
+describe.only("Amazon ürün arama", function () {
+
+    it('Ana sayfayi ziyaret et', () => {
+        cy.visit("/")
+        cy.url().should('include', amazon)
+        //Cerezleri kabul et butonuna tiklar
+        cy.xpath("//input[@id='sp-cc-accept']").click();
+    });
+
+    it('Arama kutusunu bul ve ürun adini gir', () => {
+
+        cy.get('#twotabsearchtextbox')
+
+    });
+})
