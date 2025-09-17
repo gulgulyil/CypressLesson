@@ -49,6 +49,12 @@ describe.only("Amazon ürün arama", function () {
         cy.acceptCookies();  // çerezleri otomatik kabul et
     });
 
+    it('Arama kutusunu bul ve ürun adini gir', () => {
+
+        const urunAdi = "alcatel 20196";
+        cy.get("twotabsearchtextbox").type(urunAdi).type('{enter}')
+    });
+
     it('Bilgisayar araması yap', () => {
         cy.searchProduct('Bilgisayar'); // custom command ile arama yap
         cy.url().should('include', 's?k=Bilgisayar'); // arama sonuçları kontrolü

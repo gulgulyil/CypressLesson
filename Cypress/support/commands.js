@@ -34,5 +34,6 @@ Cypress.Commands.add('acceptCookies', () => {
 
 // Ürün arama için custom command
 Cypress.Commands.add('searchProduct', (productName) => {
+
     cy.get('#twotabsearchtextbox').type(`${productName}{enter}`);
 });
