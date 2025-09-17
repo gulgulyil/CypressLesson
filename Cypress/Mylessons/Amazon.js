@@ -36,5 +36,10 @@ describe("Amazon Testleri", () => {
         cy.get('#searchDropdownBox').select('Elektronik');
     });
 
+    it("Profilim sekmesine geç", () => {
+        cy.get('#nav-link-accountList').click();
+    });
+
+
 
 });
