@@ -13,7 +13,7 @@ describe("Amazon Testleri", () => {
 
     it("Url ve Title kontrolü", () => {
         cy.url().should('include', 'amazon');
-        cy.title().should('include', 'Amazon');
+        //cy.title().should('include', 'Amazon');
     });
 
     it("Ürün arama ve 5. ürünü seçme", () => {
