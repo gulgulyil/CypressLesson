@@ -49,20 +49,28 @@ describe.only("Amazon ürün arama", function () {
         cy.acceptCookies();  // çerezleri otomatik kabul et
     });
 
+    /*it("Url ve Title kontrolü", () => {
+        cy.visit("/");
+        cy.url().should('include', 'amazon');
+        cy.get('#sp-cc-accept', { timeout: 10000 }).should('be.visible').click();
+
+    });*/
+
     it('Arama kutusunu bul ve ürun adini gir', () => {
 
         const urunAdi = "alcatel 20196";
         cy.get("#twotabsearchtextbox").type(urunAdi).type('{enter}')
-        cy.xpath("//input[@id='sp-cc-accept']").click();
+        //cy.xpath("//input[@id='sp-cc-accept']").click();
+        //cy.get('div.s-result-item').should('have.length', 4);
+        cy.get('div.s-result-item[data-component-type="s-search-result"]').should('have.length', 4);
     });
-
-    if ('Arama sonuclarini dogrula', () => {
-        cy.get('.sg-col-inner').should('have.length', 42)
-    });
-
-
 
     /*
+    it('Arama sonuclarini dogrula', () => {
+        cy.get('.sg-col-inner').should('have.length', 5)
+    });
+    
+
     it('Bilgisayar araması yap', () => {
         cy.searchProduct('Bilgisayar'); // custom command ile arama yap
         cy.url().should('include', 's?k=Bilgisayar'); // arama sonuçları kontrolü
