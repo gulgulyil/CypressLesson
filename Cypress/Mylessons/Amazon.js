@@ -40,6 +40,4 @@ describe("Amazon Testleri", () => {
         cy.get('#nav-link-accountList').click();
     });
 
-
-
 });
