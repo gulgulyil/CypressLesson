@@ -23,3 +23,16 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+import './commands';
+import 'cypress-xpath'; // xpath kullanabilmek için
+
+// Çerezleri otomatik kabul eden custom command
+Cypress.Commands.add('acceptCookies', () => {
+    cy.xpath("//input[@id='sp-cc-accept']").click({ force: true });
+});
+
+// Ürün arama için custom command
+Cypress.Commands.add('searchProduct', (productName) => {
+    cy.get('#twotabsearchtextbox').type(`${productName}{enter}`);
+});
