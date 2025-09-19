@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 describe("Cimri site testi", () => {
 
     beforeEach(() => {
