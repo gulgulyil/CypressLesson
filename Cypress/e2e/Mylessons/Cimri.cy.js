@@ -13,6 +13,11 @@ Describe("Cimri site testi", () => {
     });
 
     it("Anasayfanin acildigini dogrulamalidir", () => {
-        cy.url().should('eq', "https://www.cimri.com")
+        cy.url().should('eq', "https://www.cimri.com");
+
+        //Anasayfanin basligini kontrol et
+        cy.title().should('include', 'Cimri');
     });
+
+
 })
