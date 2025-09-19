@@ -1,4 +1,4 @@
-Describe("Cimri site testi", () => {
+describe("Cimri site testi", () => {
 
     beforeEach(() => {
         //Her test oncesinde cimri sitesine git
