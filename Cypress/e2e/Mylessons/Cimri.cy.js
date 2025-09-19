@@ -8,8 +8,7 @@ describe("Cimri site testi", () => {
         cy.visit("https://www.cimri.com/");
     });
 
-
-    AfterEach(() => {
+    afterEach(() => {
         //Her test sonrasinda sayfayi yenile
         cy.reload();
     });
