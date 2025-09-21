@@ -10,7 +10,7 @@ describe("Ürün Ara, Fiyata Göre Sirala ve Sepete Ekle", function () {
             }
         })
         //cy.contains('Accept').click()
-        cy.url().should("i", "https:/etsy.com")
+        cy.url().should("include", "etsy")
         cy.scrollTo("buttom");
     });
 
