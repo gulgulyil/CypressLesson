@@ -6,7 +6,7 @@ describe("Ürün Ara, Fiyata Göre Sirala ve Sepete Ekle", function () {
             failOnStatusCode: false,
 
         })
-        cy.contains('Accept').click()
+        //cy.contains('Accept').click()
         cy.url().should("i", "https:/etsy.com")
         cy.scrollTo("buttom");
     });
