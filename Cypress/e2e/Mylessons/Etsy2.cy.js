@@ -8,7 +8,7 @@ describe("Ürün Ara, Fiyata Göre Sirala ve Sepete Ekle", function () {
         })
         cy.contains('Accept').click()
         cy.url().should("include", "etsy")
-        cy.scrollTo("buttom");
+        cy.scrollTo("bottom");
     });
 
     it('Sayfanin en altina in ve A propos goruldugunu dogrula ', () => {
