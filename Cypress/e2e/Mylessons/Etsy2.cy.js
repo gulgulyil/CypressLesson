@@ -23,5 +23,22 @@ describe("Ürün Ara, Fiyata Göre Sirala ve Sepete Ekle", function () {
         cy.get('#global-enhancements-search-query').type('bracelet{enter}')
         cy.contains("Accepter").click()
 
-    })
-})
+    });
+
+    it('Filtre kisminin secenekleri ve calistigini dogrula', () => {
+        cy.get('#sortby > .wt-menu__trigger').click()
+        cy.wait(2000)
+        //siralamanin seceneklerini tanimla
+        const siralamaSecenekleri = ['Most relevant', 'Price: low to high', 'Price: high to low', 'Top reviews', 'Newest']
+
+        siralamaSecenekleri.forEach((secenek))
+
+        cy.get('#sortby > .wt-menu__body a').
+            contains(secenek)
+            .should('be visible')
+            .then(() => {
+                cy.log('${secenek} siralama secenegi gorunur.');
+            });
+
+    });
+});
