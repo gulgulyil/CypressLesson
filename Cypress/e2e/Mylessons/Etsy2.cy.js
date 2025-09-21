@@ -42,3 +42,9 @@ describe("Ürün Ara, Fiyata Göre Sirala ve Sepete Ekle", function () {
 
     });
 });
+
+/* forEach: Bir dizi veya liste üzerinde iterasyon yapmak icin kullanilan bir dongu yapisisdir.
+then: Onceki bir komutun tamaamlanmasini bekler ve ardindan belirtilen islevi calistirir.
+cy.log: Bir log mesajini konsola yazdirmak icin kullanilan bir Cypress fonksiyonudur.
+const: Degisken tanimlamak icin kullanilan bir JavaScript anahtar kelimesidir. Sabit (degistirilemez) bir deger atamak icin kullanilir.
+ */
