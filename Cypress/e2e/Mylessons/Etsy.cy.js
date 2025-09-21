@@ -15,7 +15,7 @@ describe("Ürün Ara, Fiyata Göre Sirala ve Sepete Ekle", function () {
     });
 
     it('Sayfanin en altina in ve A propos goruldugunu dogrula ', () => {
-        cy.scrollTo("buttom");
+        cy.scrollTo("bottom");
 
     });
     it('ürun ara', () => {
