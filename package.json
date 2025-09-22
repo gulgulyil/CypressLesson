@@ -2,13 +2,15 @@
   "name": "cypresslesson",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "description": "",
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:run": "cypress run",
+    "postcypress:run": "node cucumber-html-report.js"
+  },
   "devDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^23.0.0",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.6",
@@ -16,10 +18,5 @@
     "cypress": "^14.5.4",
     "cypress-xpath": "^2.0.1",
     "multiple-cucumber-html-reporter": "^3.9.3"
-  }
-
-  "scripts": {
-    "cypress:run": "cypress run",
-    "postcypress:run": "node cucumber-html-report.js"
   }
 }
