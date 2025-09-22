@@ -42,7 +42,7 @@ module.exports = defineConfig({
         generate: true,
         outputFolder: 'cypress/cucumber-json',
         filePrefix: '',       // isteğe bağlı
-        // fileSuffix: '.cucumber'  <-- bunu kaldırın veya '.json' yapın
+        fileSuffix: '.json'
       };
 
       return config;

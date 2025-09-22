@@ -7,9 +7,9 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "cypress:run": "cypress run",
-    "postcypress:run": "node cucumber-html-report.js"
+    "test": "cypress run",
+    "open": "cypress open",
+    "report": "node cucumber-html-report.js"
   },
   "devDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^23.0.0",
