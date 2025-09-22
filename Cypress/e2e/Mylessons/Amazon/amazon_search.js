@@ -1,4 +1,4 @@
-import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor/methods";
+import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 
 Given('Amazon anasayfasına gidilir', () => {
     cy.visit('/');

@@ -6,12 +6,12 @@ const createEsbuildPlugin = require('@badeball/cypress-cucumber-preprocessor/esb
 
 module.exports = defineConfig({
   e2e: {
-    // Feature dosyalarını da görecek şekilde pattern’i güncelledik
+    // Hem .feature hem de klasik .cy.js dosyalarını kapsasın
     specPattern: [
-      "cypress/e2e/**/*.feature",   // Cucumber senaryoları
-      "cypress/e2e/**/*.cy.js"      // Mevcut normal testleriniz
+      'cypress/e2e/**/*.feature',
+      'cypress/e2e/**/*.cy.js'
     ],
-    supportFile: "cypress/support/e2e.js",
+    supportFile: 'cypress/support/e2e.js',
     viewportWidth: 1280,
     viewportHeight: 720,
     defaultCommandTimeout: 15000,
@@ -21,13 +21,13 @@ module.exports = defineConfig({
       runMode: 2,
       openMode: 1
     },
-    // baseUrl environment’a göre
-    baseUrl: process.env.TEST_ENV === 'etsy'
-      ? 'https://www.etsy.com'
-      : 'https://www.amazon.com.tr',
+    baseUrl:
+      process.env.TEST_ENV === 'etsy'
+        ? 'https://www.etsy.com'
+        : 'https://www.amazon.com.tr',
 
     async setupNodeEvents(on, config) {
-      // <-- Cucumber için gerekli plugin kurulumu
+      // Cucumber eklentisini ekle
       await addCucumberPreprocessorPlugin(on, config);
 
       on(
@@ -37,7 +37,15 @@ module.exports = defineConfig({
         })
       );
 
+      // 🔑 Cucumber JSON çıktısı için gerekli ayar
+      config.env.cucumberJson = {
+        generate: true,
+        outputFolder: 'cypress/cucumber-json',
+        filePrefix: '',       // isteğe bağlı
+        // fileSuffix: '.cucumber'  <-- bunu kaldırın veya '.json' yapın
+      };
+
       return config;
-    }
-  }
+    },
+  },
 });
