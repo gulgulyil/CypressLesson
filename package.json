@@ -17,4 +17,9 @@
     "cypress-xpath": "^2.0.1",
     "multiple-cucumber-html-reporter": "^3.9.3"
   }
+
+  "scripts": {
+    "cypress:run": "cypress run",
+    "postcypress:run": "node cucumber-html-report.js"
+  }
 }
