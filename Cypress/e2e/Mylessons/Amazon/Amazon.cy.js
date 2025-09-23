@@ -71,7 +71,7 @@ describe.only("Amazon product search", function () {
     });
     
 
-    it('Bilgisayar araması yap', () => {
+    it('Search for computer', () => {
         cy.searchProduct('Bilgisayar'); // custom command ile arama yap
         cy.url().should('include', 's?k=Bilgisayar'); // arama sonuçları kontrolü
     });
