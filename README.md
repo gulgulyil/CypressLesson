@@ -8,8 +8,6 @@ Technologies
 
 Testing Tools: Cypress, Cucumber
 
-Design Pattern: Page Object Model
-
 Programming Language: JavaScript, Gherkin
 
 Version Control: Git / GitHub
