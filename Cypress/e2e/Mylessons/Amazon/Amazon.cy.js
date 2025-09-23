@@ -1,30 +1,30 @@
 /// <reference types="cypress" />
 
-describe("Amazon Testleri", () => {
+describe("Amazon Tests", () => {
 
-    // Her test başlamadan önce çalışacak adımlar
+    // Steps to run before each test
     beforeEach(() => {
         cy.visit('https://www.amazon.com.tr');
 
-        // Çerezleri kabul et, görünmesini bekle
+        // Accept cookies, wait until it is visible
         cy.get('#sp-cc-accept', { timeout: 10000 }).should('be.visible').click();
     });
 
 
-    it("Url ve Title kontrolü", () => {
+    it("Check URL and Title", () => {
         cy.url().should('include', 'amazon');
         //cy.title().should('include', 'Amazon');
     });
 
-    it("Ürün arama ve 5. ürünü seçme", () => {
-        // Arama yap
+    it("Search product and select the 5th item", () => {
+        // Perform search
         cy.get('#twotabsearchtextbox').type('Samsung s23 Ultra {enter}');
 
-        // Arama sonuçlarının yüklenmesini bekle
+        // Wait for search results to load
         cy.get('.s-result-list .s-result-item', { timeout: 10000 })
             .should('have.length.greaterThan', 0);
 
-        // 5. ürünün görünür olmasını bekleyip tıkla
+        // Wait for the 5th product to be visible and click it
         cy.get('.s-result-list .s-result-item')
             .eq(4)
             .scrollIntoView()
@@ -32,31 +32,31 @@ describe("Amazon Testleri", () => {
             .click();
     });
 
-    it("Kategori seçim kutusunda Elektronik seç", () => {
+    it("Select Electronics from category dropdown", () => {
         cy.get('#searchDropdownBox').select('Elektronik');
     });
 
-    it("Profilim sekmesine geç", () => {
+    it("Navigate to 'My Account", () => {
         cy.get('#nav-link-accountList').click();
     });
 
 });
 
-describe.only("Amazon ürün arama", function () {
+describe.only("Amazon product search", function () {
 
     beforeEach(() => {
-        cy.visit("/");       // baseUrl otomatik geliyor
-        cy.acceptCookies();  // çerezleri otomatik kabul et
+        cy.visit("/");       // baseUrl is applied automatically
+        cy.acceptCookies();  // automatically accept cookies
     });
 
-    /*it("Url ve Title kontrolü", () => {
+    /*it("Check URL and Title", () => {
         cy.visit("/");
         cy.url().should('include', 'amazon');
         cy.get('#sp-cc-accept', { timeout: 10000 }).should('be.visible').click();
 
     });*/
 
-    it('Arama kutusunu bul ve ürun adini gir', () => {
+    it('Find search box and enter product name', () => {
 
         const urunAdi = "alcatel 20196";
         cy.get("#twotabsearchtextbox").type(urunAdi).type('{enter}')
