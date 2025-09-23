@@ -66,7 +66,7 @@ describe.only("Amazon product search", function () {
     });
 
     /*
-    it('Arama sonuclarini dogrula', () => {
+    it('Verify search results', () => {
         cy.get('.sg-col-inner').should('have.length', 5)
     });
     
