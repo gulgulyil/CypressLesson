@@ -6,7 +6,7 @@ const createEsbuildPlugin = require('@badeball/cypress-cucumber-preprocessor/esb
 
 module.exports = defineConfig({
   e2e: {
-    // Hem .feature hem de klasik .cy.js dosyalarını kapsasın
+    // Include both .feature and classic .cy.js files
     specPattern: [
       'cypress/e2e/**/*.feature',
       'cypress/e2e/**/*.cy.js'
@@ -27,7 +27,7 @@ module.exports = defineConfig({
         : 'https://www.amazon.com.tr',
 
     async setupNodeEvents(on, config) {
-      // Cucumber eklentisini ekle
+      // Add the Cucumber plugin
       await addCucumberPreprocessorPlugin(on, config);
 
       on(
@@ -37,11 +37,11 @@ module.exports = defineConfig({
         })
       );
 
-      // 🔑 Cucumber JSON çıktısı için gerekli ayar
+      // Required settings for Cucumber JSON output
       config.env.cucumberJson = {
         generate: true,
         outputFolder: 'cypress/cucumber-json',
-        filePrefix: '',       // isteğe bağlı
+        filePrefix: '',
         fileSuffix: '.json'
       };
 
