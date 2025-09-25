@@ -1,26 +1,25 @@
 /// <reference types="cypress" />
 
-describe("Cimri site testi", () => {
+describe("Cimri site test", () => {
 
     beforeEach(() => {
-        //Her test oncesinde cimri sitesine git
-
+        // Go to Cimri site before each test
         cy.visit("https://www.cimri.com/");
     });
 
     afterEach(() => {
-        //Her test sonrasinda sayfayi yenile
+        // Refresh the page after each test
         cy.reload();
     });
 
-    it("Anasayfanin acildigini dogrulamalidir", () => {
+    it("Should verify that the homepage opens", () => {
         cy.url().should('eq', "https://www.cimri.com");
 
-        //Anasayfanin basligini kontrol et
+        //Check the homepage title
         cy.title().should('include', 'Cimri');
     });
 
-    it('Arama yapilmalidir ve sonuclar dogrulanmalidir', () => {
+    it('Should perform a search and verify the results', () => {
 
         const expectedText = 'Asus rog zephyrus'
 
