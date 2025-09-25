@@ -1,18 +1,18 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 
-Given('Amazon anasayfasına gidilir', () => {
+Given('Navigate to Amazon homepage', () => {
     cy.visit('/');
 });
 
-Given('Çerezler kabul edilir', () => {
+Given('Accept cookies', () => {
     cy.get('#sp-cc-accept', { timeout: 10000 }).click();
 });
 
-When('Arama kutusuna {string} yazılır ve enter’a basılır', (urun) => {
+When('Type {string} into the search box and press enter', (urun) => {
     cy.get('#twotabsearchtextbox').type(urun + '{enter}');
 });
 
-Then('En az {int} sonuç listelenmeli', (adet) => {
+Then('At least {int} results should be listed', (adet) => {
     cy.get('div.s-result-item[data-component-type="s-search-result"]')
         .its('length')
         .should('be.gte', adet);
