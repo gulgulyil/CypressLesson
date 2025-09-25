@@ -25,14 +25,14 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 import './commands';
-import 'cypress-xpath'; // xpath kullanabilmek için
+import 'cypress-xpath'; // to enable XPath usage
 
-// Çerezleri otomatik kabul eden custom command
+// Custom command to automatically accept cookies
 Cypress.Commands.add('acceptCookies', () => {
     cy.xpath("//input[@id='sp-cc-accept']").click({ force: true });
 });
 
-// Ürün arama için custom command
+// Custom command to search for a product
 Cypress.Commands.add('searchProduct', (productName) => {
 
     cy.get('#twotabsearchtextbox').type(`${productName}{enter}`);
