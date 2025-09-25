@@ -1,7 +1,7 @@
-describe("Ürün Ara, Fiyata Göre Sirala ve Sepete Ekle", function () {
+describe("Search Product, Sort by Price and Add to Cart", function () {
 
     beforeEach(() => {
-        //Etsy web sitesine gidilir
+        // Go to the Etsy website
         cy.visit("https://etsy.com", {
             failOnStatusCode: false,
 
@@ -11,40 +11,40 @@ describe("Ürün Ara, Fiyata Göre Sirala ve Sepete Ekle", function () {
 
     });
 
-    it('Sayfanin en altina in ve A propos goruldugunu dogrula ', () => {
+    it('Scroll to the bottom of the page and verify that About is visible ', () => {
         cy.scrollTo("bottom");
         cy.get('nth-child(3) > .with-hide-xs').should('contain', 'About')
         cy.contains('About').should('be visible');
         cy.wait(2000)
 
     });
-    it('ürun ara', () => {
+    it('Search for a product', () => {
         cy.scrollTo("top")
         cy.get('#global-enhancements-search-query').type('bracelet{enter}')
         cy.contains("Accepter").click()
 
     });
 
-    it('Filtre kisminin secenekleri ve calistigini dogrula', () => {
+    it('Verify filter options and that sorting works', () => {
         cy.get('#sortby > .wt-menu__trigger').click()
         cy.wait(2000)
-        //siralamanin seceneklerini tanimla
-        const siralamaSecenekleri = ['Most relevant', 'Price: low to high', 'Price: high to low', 'Top reviews', 'Newest']
+        //Define sorting options
+        const sortingOptions = ['Most relevant', 'Price: low to high', 'Price: high to low', 'Top reviews', 'Newest']
 
-        siralamaSecenekleri.forEach((secenek))
+        sortingOptions.forEach((option))
 
         cy.get('#sortby > .wt-menu__body a').
-            contains(secenek)
+            contains(option)
             .should('be visible')
             .then(() => {
-                cy.log('${secenek} siralama secenegi gorunur.');
+                cy.log('${option} sorting option is visible.');
             });
 
     });
 });
 
-/* forEach: Bir dizi veya liste üzerinde iterasyon yapmak icin kullanilan bir dongu yapisisdir.
-then: Onceki bir komutun tamaamlanmasini bekler ve ardindan belirtilen islevi calistirir.
-cy.log: Bir log mesajini konsola yazdirmak icin kullanilan bir Cypress fonksiyonudur.
-const: Degisken tanimlamak icin kullanilan bir JavaScript anahtar kelimesidir. Sabit (degistirilemez) bir deger atamak icin kullanilir.
+/* forEach: Used to iterate over an array or list.
+then: Waits for the previous command to complete, then executes the specified function.
+cy.log: Cypress function to print a log message to the console.
+const: JavaScript keyword to declare a variable with a constant (non-changeable) value.
  */
